@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Game.cs" type="Script" id=3]
+[ext_resource path="res://ObstacleShooter.tscn" type="PackedScene" id=5]
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+position = Vector2( 384, 480 )
+scale = Vector2( 14, 17 )
+texture = ExtResource( 2 )
+
+[node name="Shooters" type="Node2D" parent="."]
+position = Vector2( 352, 928 )
+
+[node name="OShooter1" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -64 )
+Pattern = PoolIntArray( 1, 1, 4, 1 )
+XBound = -128
+
+[node name="OShooter2" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( -448, -128 )
+ShootLeft = false
+XBound = 960
+
+[node name="OShooter3" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -192 )
+XBound = -128
+
+[node name="OShooter4" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -256 )
+XBound = -128
+
+[node name="OShooter5" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( -448, -320 )
+ShootLeft = false
+XBound = 960
+
+[node name="OShooter6" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -384 )
+XBound = -128
+
+[node name="OShooter7" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( -448, -448 )
+ShootLeft = false
+XBound = 960
+
+[node name="OShooter8" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( -448, -512 )
+ShootLeft = false
+XBound = 960
+
+[node name="OShooter9" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -576 )
+XBound = -128
+
+[node name="OShooter10" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -640 )
+XBound = -128
+
+[node name="OShooter11" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( 512, -704 )
+XBound = -128
+
+[node name="OShooter12" parent="Shooters" instance=ExtResource( 5 )]
+position = Vector2( -448, -768 )
+ShootLeft = false
+XBound = 960
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, 928 )
