@@ -26,6 +26,7 @@ public class Game : Node2D
 
         var playerPosition = new Vector2(5 * TileSize, 13 * TileSize);
         Player1.Tween.Connect("tween_completed", this, nameof(OnPlayerMoved));
+        Player1.Connect("area_entered", this, nameof(OnPlayerEntered));
 
         var shooters = GetNode<Node2D>("Shooters")?.GetChildren();
 
@@ -37,14 +38,20 @@ public class Game : Node2D
             } 
         }
 
-        Collider = GetNode<CollisionShape2D>("CollisionShape2D");
+    }
+    
+    public void OnPlayerEntered(Area2D area)
+    {
+        if (area.Name == "Obstacle")
+        {
+            //player.Move(Vector2.Down * TileSize);
+            GD.Print("Player hit obstacle");
+        }
     }
 
     public void OnPlayerMoved(Object @object, NodePath nodePath)
     {
-        //GD.Print($"{Mathf.Floor(Player1.Position.x / TileSize)},{Mathf.Floor(Player1.Position.y / TileSize)}");
-        var playerPosition = new Vector2(Mathf.Floor(Player1.Position.x / TileSize), Mathf.Floor(Player1.Position.y / TileSize));
-        //Check for collision
+        var playerPosition = new Vector2(Math.Floor(Player1.Position.x / TileSize), Math.Floor(Player1.Position.y / TileSize));
     }
 
     public override void _UnhandledInput(InputEvent @event)

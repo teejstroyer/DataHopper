@@ -4,7 +4,7 @@
 [ext_resource path="res://Player.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24, 23.5 )
+extents = Vector2( 26, 26 )
 
 [node name="Player" type="Area2D"]
 script = ExtResource( 2 )
