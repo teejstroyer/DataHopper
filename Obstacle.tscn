@@ -4,9 +4,10 @@
 [ext_resource path="res://Obstacle.cs" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 29.5, 25.5 )
+extents = Vector2( 29.5, 27 )
 
 [node name="Obstacle" type="Area2D"]
+monitoring = false
 script = ExtResource( 2 )
 Active = true
 MoveLeft = false
@@ -14,13 +15,7 @@ XBound = 250
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0.0117647, 0.980392, 0.411765, 1 )
-scale = Vector2( 2, 1 )
 texture = ExtResource( 1 )
 
-[node name="LeftCollider" type="CollisionShape2D" parent="."]
-position = Vector2( -32, 0 )
-shape = SubResource( 1 )
-
-[node name="RightCollider" type="CollisionShape2D" parent="."]
-position = Vector2( 32, 0 )
+[node name="Collider" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

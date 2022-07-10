@@ -23,10 +23,7 @@ public class Game : Node2D
     public override void _Ready()
     {
         Player1 = GetNode<Player>("Player");
-
-        var playerPosition = new Vector2(5 * TileSize, 13 * TileSize);
-        Player1.Tween.Connect("tween_completed", this, nameof(OnPlayerMoved));
-        Player1.Connect("area_entered", this, nameof(OnPlayerEntered));
+				Player1.MoveToGridSpot(Columns/2, Rows);
 
         var shooters = GetNode<Node2D>("Shooters")?.GetChildren();
 
@@ -39,20 +36,7 @@ public class Game : Node2D
         }
 
     }
-    
-    public void OnPlayerEntered(Area2D area)
-    {
-        if (area.Name == "Obstacle")
-        {
-            //player.Move(Vector2.Down * TileSize);
-            GD.Print("Player hit obstacle");
-        }
-    }
 
-    public void OnPlayerMoved(Object @object, NodePath nodePath)
-    {
-        var playerPosition = new Vector2(Math.Floor(Player1.Position.x / TileSize), Math.Floor(Player1.Position.y / TileSize));
-    }
 
     public override void _UnhandledInput(InputEvent @event)
     {
@@ -75,7 +59,7 @@ public class Game : Node2D
     private bool ValidateMove(Vector2 direction) 
     {
         var future = Player1.Position/TileSize + direction;
-        return !(future.x < 1 || future.x >= Columns || future.y < 1 || future.y >= Rows);
+        return !(future.x < 0 || future.x >= Columns || future.y < 0 || future.y >= Rows);
     }
 
 

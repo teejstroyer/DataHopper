@@ -9,6 +9,7 @@ public class ObstacleShooter : Sprite
     [Export] public float Speed;
     [Export] public int[] Pattern;
     [Export] public int XBound;
+		[Export] public bool Rideable = false;
 
     private int PatternIndex = 0;
     private float Reloading = 0;
@@ -32,6 +33,7 @@ public class ObstacleShooter : Sprite
             obstacle.MoveLeft = ShootLeft;
             obstacle.XBound = XBound;
             obstacle.Active = true;
+						obstacle.CanRide = Rideable;
             AddChild(obstacle);
         }
     }

@@ -19,6 +19,7 @@ public class Obstacle : Area2D
 
     [Export] public float Speed = 50f;
 
+		[Export] public bool CanRide;
 
 
     public override void _Ready()
